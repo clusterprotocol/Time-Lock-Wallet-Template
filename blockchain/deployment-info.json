@@ -1,0 +1,11 @@
+{
+  "contractAddress": "0x672861D61A5907327cB9B31b706A8c78743d7Be6",
+  "transactionHash": "0x62eb1af9afb29f42c6231365e7046cfd8ba2d03bb8f9ed364631bf79e2787cfd",
+  "deployer": "0x6143Fb589048B36c7A35f99DB07Efa01ddA31685",
+  "timestamp": "2025-04-11T09:00:18.613Z",
+  "network": "sepolia",
+  "gasUsed": "842697",
+  "blockNumber": 8096310,
+  "effectiveGasPrice": "2234737",
+  "totalCost": "0.000001883206165689"
+}

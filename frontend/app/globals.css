@@ -1,0 +1,168 @@
+@import "./fonts.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: 0 0% 100%;
+  --background: 240 24% 14%;
+  --border: 240 5% 64%;
+  --input: 240 5% 64%;
+  --ring: 240 5% 64%;
+  --radius: 0.5rem;
+
+  /* Sidebar variables */
+  --sidebar-background: 240 24% 14%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-primary: 240 5.9% 10%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 240 4.8% 20%;
+  --sidebar-accent-foreground: 240 4.8% 95.9%;
+  --sidebar-border: 240 3.7% 15.9%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  color: rgb(var(--foreground));
+  background: #1a1a2e;
+  font-family: var(--font-oswald), sans-serif;
+}
+
+/* Ensure all text uses Oswald by default */
+h1, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea, label, div {
+  font-family: var(--font-oswald), sans-serif;
+}
+
+.glass-card {
+  background: rgba(26, 26, 46, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #a100ff, #00ffd1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.futuristic-border {
+  position: relative;
+  border: 1px solid rgba(161, 0, 255, 0.3);
+  overflow: hidden;
+}
+
+.futuristic-border::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #a100ff, #00ffd1, transparent);
+  animation: border-flow 3s linear infinite;
+}
+
+@keyframes border-flow {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.neo-glow {
+  box-shadow: 0 0 10px rgba(0, 255, 209, 0.5), 0 0 20px rgba(0, 255, 209, 0.3), inset 0 0 10px rgba(0, 255, 209, 0.2);
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-secondary text-background font-semibold py-2 px-6 rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-accent-green hover:to-accent-blue hover:shadow-lg hover:shadow-secondary/20;
+  }
+
+  .btn-secondary {
+    @apply bg-primary text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-primary hover:to-accent-blue hover:shadow-lg hover:shadow-primary/20;
+  }
+
+  .btn-disabled {
+    @apply bg-gray-600 text-gray-400 font-semibold py-2 px-6 rounded-lg cursor-not-allowed;
+  }
+
+  .input-primary {
+    @apply bg-background border border-secondary rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-secondary transition-all duration-300 text-white placeholder:text-text-secondary;
+  }
+
+  .card {
+    @apply glass-card rounded-xl p-6 transition-all duration-300;
+  }
+}
+
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: rgba(0, 255, 209, 0.5);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Scrollable content area */
+.content-scrollable {
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(161, 0, 255, 0.5) rgba(26, 26, 46, 0.7);
+}
+
+.content-scrollable::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content-scrollable::-webkit-scrollbar-track {
+  background: rgba(26, 26, 46, 0.7);
+}
+
+.content-scrollable::-webkit-scrollbar-thumb {
+  background: rgba(161, 0, 255, 0.5);
+  border-radius: 3px;
+}
+
+/* Add page transition animations */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 300ms, transform 300ms;
+}
