@@ -104,24 +104,6 @@ The project is divided into two main components:
 - Forced HODL strategy for crypto investments
 - Recurring payments and allowances
 
-## 🛠️ Advanced Setup
-
-See the README.md files in the `/blockchain` and `/frontend` directories for more detailed setup instructions and configurations.
-
-## 🧪 Testing
-
-### Smart Contract Tests
-```
-cd blockchain
-npm test
-```
-
-### Frontend Tests
-```
-cd frontend
-npm test
-```
-
 ## 🔐 Security
 
 The smart contract implements several security measures:
